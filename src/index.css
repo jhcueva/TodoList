@@ -1,13 +1,131 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  background: #F2F4F5;
+  color: #1E1E1F;
 }
+h2 {
+  font-size: 3.2rem;
+}
+h3 {
+  font-size: 2.2rem;
+}
+p {
+  font-size: 1.8rem;
+}
+button,
+input {
+  padding: 12px 8px;
+  border: none;
+  border-radius: 8px;
+}
+input {
+  font-size: 1.4rem;
+}
+button:hover,
+input:hover {
+  cursor: pointer;
+}
+li {
+  border-radius: 8px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+textarea {
+  font-size: 1.6rem;
+  font-family: 'Montserrat';
+  resize: none;
+}
+textarea::placeholder {
+  color: #a5a5a5;
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
+textarea,
+textarea:focus {
+  border-color: none;
+  border: none;
+  outline: none
+}
+.newTask {
+  background-color: antiquewhite;
+  width: 90%;
+  max-width: 650px;
+  /* min-height: 250px; */
+  height: 40vh;
+  flex: 0 1 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 14px;
+}
+.newTask > h2 {
+  margin: 18px 0px;
+}
+.todoTask{
+  background-color: azure;
+  flex: 0 1 650px;
+  min-height: 60vh;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 14px;
+  border-radius: 14px 14px 0px 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+}
+.todoTask > h2,
+.todoTask > .searchContainer {
+  margin: 12px 0px;
+}
+.todoTask > ul {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.globalContainer {
+  margin: 0 8px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+::-webkit-scrollbar {
+  width: 0; 
+  background: transparent;
+}
+@media (min-width: 650px) {
+    .newTask,
+    .todoTask {
+      height: 60vh;
+      max-height: 60vh;
+    }
+    .newTask {
+      justify-content: normal;
+    }
+    .todoTask > ul {
+      overflow: hidden;
+      overflow-y: scroll;
+    }
 }

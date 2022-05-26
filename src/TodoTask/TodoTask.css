@@ -1,0 +1,53 @@
+.newtaskContainer {
+    border-radius: 8px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: none;
+}
+.newtaskContainer--active {
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.taskInputContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 8px;
+    padding: 4px;
+}
+.taskInputContainer--active {
+    box-shadow: none;
+    justify-content: center;
+}
+.formContainer {
+    width: 90%;
+    margin: 8px 0px;
+}
+.todoInput {
+    height: 15px;
+    width: 100%;
+}
+.todoInput--active {
+    height: 40px;
+}
+.writeIcon:hover {
+    cursor: pointer;
+}
+.writeIcon {
+    font-size: 1.4rem;
+    color: gray;
+}
+.btnContainer {
+    display: none;
+    margin-top: 22px;
+    justify-content: space-evenly;
+}
+.addBtn--active,
+.cancelBtn--active {
+    visibility: visible;
+}
