@@ -17,6 +17,7 @@
     flex-direction: column;
     margin: 12px 0px;
     max-width: 215px;
+    width: 100%;
     /* overflow-wrap: break-word; */
 
 }
@@ -66,4 +67,10 @@
 .delete:hover {
     cursor: pointer;
     color: red;
+}
+@media (min-width: 650px) {
+    .taskContainer {
+        width: 80%;
+        max-width: none;
+    }
 }

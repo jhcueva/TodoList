@@ -10,12 +10,6 @@ function TodoTask() {
         setNewTodoValue(event.target.value)
     }
     
-    const onSubmit = (event) => {
-        console.log('submit')
-        event.preventDefault();
-        addTodo(newTodoValue)
-        console.log(newTodoValue.length)
-    }
     
     const onClickInput = () => {
         document.getElementsByClassName('writeIcon')[0].style.fontSize = 0
@@ -24,9 +18,17 @@ function TodoTask() {
         document.getElementsByClassName('todoInput')[0].classList.add('todoInput--active')
         document.getElementsByClassName('btnContainer')[0].style.display = 'flex'
     }
+
+    const onSubmit = (event) => {
+        console.log('submit')
+        event.preventDefault();
+        addTodo(newTodoValue)
+        document.getElementsByClassName('todoInput')[0].value = ''
+
+    }
     
     const onCloseTodo = () => {
-        console.log("Cancel Btn")
+        document.getElementsByClassName('todoInput')[0].value = ''
     }
     return (
         <>
