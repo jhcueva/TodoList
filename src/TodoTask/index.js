@@ -9,35 +9,39 @@ function TodoTask() {
     const onChange = (event) => {
         setNewTodoValue(event.target.value)
     }
-    
-    
+
     const onClickInput = () => {
+        console.log('onclick started')
         document.getElementsByClassName('writeIcon')[0].style.fontSize = 0
         document.getElementsByClassName('newtaskContainer')[0].classList.add('newtaskContainer--active')
-        document.getElementsByClassName('taskInputContainer')[0].classList.add('taskInputContainer--active')
+        document.getElementById('taskInputContainer').classList.add('taskInputContainer--active')
         document.getElementsByClassName('todoInput')[0].classList.add('todoInput--active')
         document.getElementsByClassName('btnContainer')[0].style.display = 'flex'
+        console.log('done onclick')
     }
 
     const onSubmit = (event) => {
-        console.log('submit')
+
         event.preventDefault();
         addTodo(newTodoValue)
-        document.getElementsByClassName('todoInput')[0].value = ''
-
     }
     
     const onCloseTodo = () => {
         document.getElementsByClassName('todoInput')[0].value = ''
+        document.getElementsByClassName('writeIcon')[0].style.fontSize = ('1.4rem')
+        document.getElementsByClassName('newtaskContainer')[0].className = ('newtaskContainer')
+        document.getElementsByClassName('taskInputContainer--active')[0].className = ('taskInputContainer')
+        document.getElementsByClassName('todoInput')[0].className = ('todoInput')
+        document.getElementsByClassName('btnContainer')[0].style.display = 'none'
     }
     return (
         <>
             <h2>Create a new task</h2>
             <section 
                 className='newtaskContainer'
-                onClick={onClickInput}
                 >
-                <section className='taskInputContainer'>
+                <section className='taskInputContainer'
+                    id='taskInputContainer'>
                     <form 
                         className='formContainer'
                         onSubmit={onSubmit}>
@@ -45,6 +49,7 @@ function TodoTask() {
                             className='todoInput'
                             value={newTodoValue}
                             onChange={onChange}
+                            onClick={onClickInput}
                             placeholder="Launch rocket to the moon"
                         />
                         <section className='btnContainer'>
