@@ -1,9 +1,10 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
+import {TodoContextProps, BaseLayoutProps} from './index.models'
 
-const TodoContext = React.createContext();
+const TodoContext = React.createContext<TodoContextProps | {}>({});
 
-function TodoProvider(props) {
+const TodoProvider: React.FC<BaseLayoutProps> = ({children}) => {
     const {
         item: todos,
         saveItem: saveTodos,
@@ -35,7 +36,7 @@ function TodoProvider(props) {
         });
     }
 
-    const addTodo = (text) => {
+    const addTodo = (text: string) => {
         const newTodos = [...todos];
         newTodos.push({
             completed: false,
@@ -43,21 +44,21 @@ function TodoProvider(props) {
         });
         saveTodos(newTodos);
     }
-    const editTodo = (text, newText) => {
+    const editTodo = (text: string, newText: string) => {
         const todoIndex = todos.findIndex((todo) => todo.text === text);
         const newTodos = [...todos];
         newTodos[todoIndex].text = newText;
         saveTodos(newTodos)
     }
 
-    const completeTodo = (text) => {
+    const completeTodo = (text: string) => {
         const todoIndex = todos.findIndex((todo) => todo.text === text);
         const newTodos = [...todos];
         newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
         saveTodos(newTodos);
     };
 
-    const deleteTodo = (text) => {
+    const deleteTodo = (text: string) => {
         const todoIndex = todos.findIndex((todo) => todo.text === text);
         const newTodos = [...todos];
         newTodos.splice(todoIndex, 1);
@@ -82,7 +83,7 @@ function TodoProvider(props) {
             task,
             editTask
         }}>{
-            props.children}
+            children}
         </TodoContext.Provider>
     );
 }
