@@ -19,6 +19,7 @@ function AppUI() {
     openModal,
     totalTodos,
     completedTodos,
+
   } = React.useContext(TodoContext) as TodoContextProps;
 
   return (
@@ -34,7 +35,10 @@ function AppUI() {
             completedTodos={completedTodos}
           />
           <TodoSearch />
-          <TodoList>
+          <TodoList
+            loading={loading}
+            searchedTodos={searchedTodos}
+          >
             {searchedTodos.map((todo) => (
               <TodoItem
                 key={todo.text}
