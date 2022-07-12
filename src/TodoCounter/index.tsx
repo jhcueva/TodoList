@@ -1,9 +1,12 @@
 import React from 'react';
-import { TodoContext } from '../TodoContext';
 import './TodoCounter.css'
 
-function TodoCounter() {
-    const { totalTodos, completedTodos } = React.useContext(TodoContext)
+interface TodoCounterProps {
+    totalTodos: number
+    completedTodos: number
+}
+
+const TodoCounter: React.FC<TodoCounterProps> = ({totalTodos, completedTodos}) => {
     React.useEffect(() => {
         totalTodos - completedTodos > 0
             ? (document.title = `${totalTodos - completedTodos} ${
