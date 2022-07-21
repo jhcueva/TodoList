@@ -7,8 +7,10 @@ import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
+import { NewTask } from "../NewTask"
 
 import { TodoContextProps } from "../TodoContext/index.models";
+import { TodoTaskContainer } from "../TodoTaskContainer";
 
 function AppUI() {
   const {
@@ -19,22 +21,27 @@ function AppUI() {
     openModal,
     totalTodos,
     completedTodos,
+    addTodo,
+    searchValue, 
+    setSearchValue,
 
   } = React.useContext(TodoContext) as TodoContextProps;
 
   return (
     <React.Fragment>
       <section className="globalContainer">
-        <section className="newTask">
-          <TodoTask />
-          {/* <CreateTodoButton />    */}
-        </section>
-        <section className="todoTask">
+        <NewTask>
+          <TodoTask addTodo={addTodo}/>
+        </NewTask>
+        <TodoTaskContainer>
           <TodoCounter
             totalTodos={totalTodos}
             completedTodos={completedTodos}
           />
-          <TodoSearch />
+          <TodoSearch 
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
           <TodoList
             loading={loading}
             searchedTodos={searchedTodos}
@@ -49,7 +56,7 @@ function AppUI() {
               />
             ))}
           </TodoList>
-        </section>
+        </TodoTaskContainer>
         {!!openModal && (
           <Modal>
             <TodoForm />
