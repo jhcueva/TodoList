@@ -1,13 +1,18 @@
 import React from 'react'
 
 interface Props {
+  loading: boolean
   children?: React.ReactNode
 }
 
-const TodoTaskContainer = ({ children }: Props) => {
+const TodoTaskContainer = ({ children, loading }: Props) => {
   return (
     <section className="todoTask">
-      { children }
+      {
+        React.Children
+          .toArray(children)
+          .map(child => React.cloneElement( child, { loading}))
+      }
     </section>
   )
 }

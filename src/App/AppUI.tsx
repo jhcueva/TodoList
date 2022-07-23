@@ -38,7 +38,7 @@ function AppUI() {
         <NewTask>
           <TodoTask addTodo={addTodo}/>
         </NewTask>
-        <TodoTaskContainer>
+        <TodoTaskContainer loading={loading}>
           <TodoCounter
             totalTodos={totalTodos}
             completedTodos={completedTodos}
@@ -46,11 +46,9 @@ function AppUI() {
           <TodoSearch 
             searchValue={searchValue}
             setSearchValue={setSearchValue}
-            loading={loading}
           />
           <TodoList
             error={error}
-            loading={loading}
             searchedTodos={searchedTodos}
             totalTodos={totalTodos}
             onError={() => <TodoError/>}

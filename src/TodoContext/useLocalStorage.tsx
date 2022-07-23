@@ -1,10 +1,43 @@
 import React from "react"
+import { useReducer } from "react"
 import {Item, Return} from './useLocalStorage.models'
 
+enum actionTypes {
+  ERROR,
+  ITEM,
+  LOADING,
+
+}
+
+interface actionError {
+  type: actionTypes.ERROR
+  payload: unknown
+}
+
+interface actionLoading {
+  type: actionTypes.LOADING
+}
+
+interface actionItem {
+  type: actionTypes.ITEM
+  payload: Item | Item[]
+}
+
 const useLocalStorage = (itemName: string, initialValue: Item[]): Return => {
-    const [error, setError] = React.useState<boolean | unknown>(false)
-    const [loading, setLoading] = React.useState(true)
-    const [item, setItem] = React.useState(initialValue)
+
+
+    const [state, dispatch] = useReducer(reducer, initialState({ initialValue }))
+
+    const {
+      error,
+      loading,
+      item,
+    } = state
+
+    //ACTION CREATORS
+    const onError = (error) => dispatch({ type: actionTypes.ERROR, payload: error })
+    const onLoading = () => dispatch({ type: actionTypes.LOADING})
+    const onSave = (item) => dispatch({ type: actionTypes.ITEM, payload: item})
 
     React.useEffect(() => {
       setTimeout(() => {
@@ -19,11 +52,11 @@ const useLocalStorage = (itemName: string, initialValue: Item[]): Return => {
             parsedItem = JSON.parse(localStorageItem)
           }
     
-          setItem(parsedItem);
-          setLoading(false)
+          onSave(parsedItem)
+          onLoading()
 
         } catch(error) {
-          setError(error)
+          onError(error)
         }
       }, 1000)
     }, [])
@@ -32,11 +65,10 @@ const useLocalStorage = (itemName: string, initialValue: Item[]): Return => {
       try {
         const stringifiedItem = JSON.stringify(newItem)
         localStorage.setItem(itemName, stringifiedItem)
-        setItem(newItem)
+        onSave(newItem)
       } catch(error) {
-        setError(error)
+          onError(error)
       }
-  
     }
   
     return {
@@ -45,6 +77,36 @@ const useLocalStorage = (itemName: string, initialValue: Item[]): Return => {
       loading,
       error,
     };
+  }
+
+  const initialState = ({ initialValue }) => ({
+    error: false,
+    loading: true,
+    item: initialValue,
+  })
+
+  const reducer = (state, action: actionError | actionLoading | actionItem) => {
+    switch (action.type) {
+      case actionTypes.ERROR: 
+        return {
+          ...state,
+          error: true,
+        }
+      case actionTypes.LOADING:
+        return {
+          ...state,
+          loading: false
+        }
+      case actionTypes.ITEM:
+        return {
+          ...state,
+          item: action.payload
+        }
+      default:
+        return {
+          ...state
+        }
+    }
   }
 
 export { useLocalStorage }
