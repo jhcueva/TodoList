@@ -8,6 +8,9 @@ import { TodoItem } from "../TodoItem";
 import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
 import { NewTask } from "../NewTask"
+import { TodoLoading } from "../TodoLoading";
+import { TodoError } from "../TodoError";
+import { EmptyTodos } from "../EmptyTodos";
 
 import { TodoContextProps } from "../TodoContext/index.models";
 import { TodoTaskContainer } from "../TodoTaskContainer";
@@ -24,6 +27,7 @@ function AppUI() {
     addTodo,
     searchValue, 
     setSearchValue,
+    error
 
   } = React.useContext(TodoContext) as TodoContextProps;
 
@@ -43,19 +47,22 @@ function AppUI() {
             setSearchValue={setSearchValue}
           />
           <TodoList
+            error={error}
             loading={loading}
             searchedTodos={searchedTodos}
-          >
-            {searchedTodos.map((todo) => (
+            onError={() => <TodoError/>}
+            onLoading={() => <TodoLoading/>}
+            onEmptyTodo={() => <EmptyTodos/>}
+            render={todo => (
               <TodoItem
-                key={todo.text}
-                text={todo.text}
-                completed={todo.completed}
-                onComplete={() => completeTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
-              />
-            ))}
-          </TodoList>
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+              />)
+            }
+          />
         </TodoTaskContainer>
         {!!openModal && (
           <Modal>

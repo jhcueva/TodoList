@@ -3,17 +3,27 @@ import "./TodoList.css";
 import {Item} from '../TodoContext/useLocalStorage.models'
 
 interface ToDoListProps {
-  children?: React.ReactNode;
-  loading: boolean;
+  error: boolean
+  loading: boolean
   searchedTodos: Item[]
+  onError: () => void
+  onLoading: () => void
+  onEmptyTodos: () => void
+  render: (todo) => JSX.Element
+  // children: React.ReactNode | React.ReactNode[]
+
 }
 
-function TodoList({ children, loading, searchedTodos }: ToDoListProps) {
+
+function TodoList (props: ToDoListProps) {
   return (
     <>
-      <ul className="TodoList">{children}</ul>
-      {loading && <p>Loading your tasks, please wait...</p>}
-      {!loading && !searchedTodos.length && <p>Create your first task</p>}
+      {props.error && props.onError()}
+      {props.loading && props.onLoading()}
+      {(!props.loading && !props.searchedTodos.length) && props.onEmptyTodos()}
+      <section className="TodoList">
+        {props.searchedTodos.map(props.render)}
+      </section>
     </>
   );
 }
