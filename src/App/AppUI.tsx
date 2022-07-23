@@ -11,6 +11,7 @@ import { NewTask } from "../NewTask"
 import { TodoLoading } from "../TodoLoading";
 import { TodoError } from "../TodoError";
 import { EmptyTodos } from "../EmptyTodos";
+import { EmptySearchResults } from "../EmptySearchResults";
 
 import { TodoContextProps } from "../TodoContext/index.models";
 import { TodoTaskContainer } from "../TodoTaskContainer";
@@ -45,14 +46,17 @@ function AppUI() {
           <TodoSearch 
             searchValue={searchValue}
             setSearchValue={setSearchValue}
+            loading={loading}
           />
           <TodoList
             error={error}
             loading={loading}
             searchedTodos={searchedTodos}
+            totalTodos={totalTodos}
             onError={() => <TodoError/>}
             onLoading={() => <TodoLoading/>}
-            onEmptyTodo={() => <EmptyTodos/>}
+            onEmptyTodos={() => <EmptyTodos/>}
+            onEmptySearchResults={() => <EmptySearchResults searchValue={searchValue}/>}
             render={todo => (
               <TodoItem
               key={todo.text}
@@ -62,7 +66,17 @@ function AppUI() {
               onDelete={() => deleteTodo(todo.text)}
               />)
             }
-          />
+          >
+            {/* {todo => (
+              <TodoItem
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+              />)
+            } */}
+          </TodoList>
         </TodoTaskContainer>
         {!!openModal && (
           <Modal>
