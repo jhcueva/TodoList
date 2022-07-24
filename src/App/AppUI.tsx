@@ -1,6 +1,6 @@
 import React from "react";
 import { TodoTask } from "../TodoTask";
-import { TodoContext } from "../TodoContext";
+import { useTodos } from "./useTodos";
 import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
 import { TodoList } from "../TodoList";
@@ -28,9 +28,12 @@ function AppUI() {
     addTodo,
     searchValue, 
     setSearchValue,
-    error
-
-  } = React.useContext(TodoContext) as TodoContextProps;
+    error,
+    setOpenModal,
+    task,
+    editTodo,
+    editTask,
+  } = useTodos()
 
   return (
     <React.Fragment>
@@ -55,8 +58,22 @@ function AppUI() {
             onLoading={() => <TodoLoading/>}
             onEmptyTodos={() => <EmptyTodos/>}
             onEmptySearchResults={() => <EmptySearchResults searchValue={searchValue}/>}
-            render={todo => (
+            // render={todo => (
+            //   <TodoItem
+            //   editTask={(text) => editTask(text)}
+            //   setOpenModal={(state) => setOpenModal(state)}
+            //   key={todo.text}
+            //   text={todo.text}
+            //   completed={todo.completed}
+            //   onComplete={() => completeTodo(todo.text)}
+            //   onDelete={() => deleteTodo(todo.text)}
+            //   />)
+            // }
+          >
+            {todo => (
               <TodoItem
+              editTask={(text) => editTask(text)}
+              setOpenModal={(state) => setOpenModal(state)}
               key={todo.text}
               text={todo.text}
               completed={todo.completed}
@@ -64,21 +81,15 @@ function AppUI() {
               onDelete={() => deleteTodo(todo.text)}
               />)
             }
-          >
-            {/* {todo => (
-              <TodoItem
-              key={todo.text}
-              text={todo.text}
-              completed={todo.completed}
-              onComplete={() => completeTodo(todo.text)}
-              onDelete={() => deleteTodo(todo.text)}
-              />)
-            } */}
           </TodoList>
         </TodoTaskContainer>
         {!!openModal && (
           <Modal>
-            <TodoForm />
+            <TodoForm 
+              task={task}
+              editTodo={editTodo}
+              setOpenModal={setOpenModal}
+            />
           </Modal>
         )}
       </section>

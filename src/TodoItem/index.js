@@ -1,13 +1,12 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import "./TodoItem.css";
 
 function TodoItem(props) {
-  const { task, editTask, setOpenModal } = React.useContext(TodoContext);
 
   const onClickEdit = () => {
-    editTask(props.text);
-    setOpenModal(true);
+    console.log("Edit")
+    props.editTask(props.text);
+    props.setOpenModal(true);
   };
   return (
     <li className={`todoContainer ${props.completed && "todoContainer--active"}`}>
