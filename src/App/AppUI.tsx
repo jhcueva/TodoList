@@ -15,25 +15,33 @@ import { EmptySearchResults } from "../EmptySearchResults";
 
 import { TodoContextProps } from "../TodoContext/index.models";
 import { TodoTaskContainer } from "../TodoTaskContainer";
+import { ChangeAlertWithStorageListener } from "../ChangeAlert";
 
 function AppUI() {
+  const { state, stateUpdaters } = useTodos()
+
   const {
     loading,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
+    error,
     totalTodos,
     completedTodos,
-    addTodo,
-    searchValue, 
-    setSearchValue,
-    error,
-    setOpenModal,
+    searchValue,
+    searchedTodos,
+    openModal,
+    notFound,
     task,
+    synchronizeTodos,
+  } = state
+
+  const {
+    setSearchValue,
+    addTodo,
     editTodo,
+    completeTodo,
+    deleteTodo,
+    setOpenModal,
     editTask,
-  } = useTodos()
+  } = stateUpdaters
 
   return (
     <React.Fragment>
@@ -42,6 +50,9 @@ function AppUI() {
           <TodoTask addTodo={addTodo}/>
         </NewTask>
         <TodoTaskContainer loading={loading}>
+          <ChangeAlertWithStorageListener
+            synchronize={synchronizeTodos}
+          />
           <TodoCounter
             totalTodos={totalTodos}
             completedTodos={completedTodos}

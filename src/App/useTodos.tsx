@@ -8,6 +8,7 @@ const useTodos = () => {
     saveItem: saveTodos,
     loading,
     error,
+    synchronizeItem: synchronizeTodos,
   } = useLocalStorage("TODOS_V1", []);
 
   const [searchValue, setSearchValue] = React.useState("");
@@ -62,25 +63,31 @@ const useTodos = () => {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
-  
-  return {
+
+  const state = {
     loading,
     error,
     totalTodos,
     completedTodos,
     searchValue,
     searchedTodos,
-    setSearchValue,
+    openModal,
     notFound,
+    task,
+    synchronizeTodos,
+  }
+  
+  const stateUpdaters = {
+    setSearchValue,
     addTodo,
     editTodo,
     completeTodo,
     deleteTodo,
-    openModal,
     setOpenModal,
-    task,
-    editTask
+    editTask,
   }
+
+  return { state, stateUpdaters}
 }
 
 export { useTodos }
