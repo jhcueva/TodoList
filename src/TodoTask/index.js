@@ -47,7 +47,7 @@ function TodoTask({ addTodo }) {
               // value={newTodoValue}
               onChange={onChange}
               onClick={onClickInput}
-              placeholder="Launch rocket to the moon"
+              placeholder=" Launch rocket to the moon"
             />
             <section className='btnContainer'>
               <button

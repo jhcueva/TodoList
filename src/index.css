@@ -10,7 +10,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: #F2F4F5;
+  background: #031956;
   color: #1E1E1F;
 }
 h2 {
@@ -60,31 +60,36 @@ textarea:focus {
   outline: none
 }
 .newTask {
-  background-color: antiquewhite;
-  width: 90%;
+  background-color: #334EA0;
+  position: fixed;
+  width: 95%;
   max-width: 650px;
-  /* min-height: 250px; */
+  min-height: 250px;
   height: 40vh;
   flex: 0 1 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 24px 14px;
 }
 .newTask > h2 {
   margin: 18px 0px;
+  color: white
 }
 .todoTask{
-  background-color: azure;
+  background-color: #F9FAFF;
   flex: 0 1 650px;
-  min-height: 60vh;
+  min-height: 61vh;
   max-width: 650px;
+  width: 98%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 24px 14px;
   border-radius: 14px 14px 0px 0px;
+  z-index: 1;
+  position: absolute;
+  margin-top: max(240px, 39vh);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
 }
@@ -116,16 +121,27 @@ textarea:focus {
   background: transparent;
 }
 @media (min-width: 650px) {
-    .newTask,
-    .todoTask {
-      height: 60vh;
-      max-height: 60vh;
-    }
     .newTask {
       justify-content: normal;
     }
+
     .todoTask > ul {
       overflow: hidden;
       overflow-y: scroll;
     }
 }
+
+@media (min-width: 1300px){
+  .newTask,
+  .todoTask {
+    height: 80vh;
+    max-height: 80vh;
+    border-radius: 14px;
+    position: relative;
+    margin: 12px;
+  }
+  .todoTask {
+    /* margin-top: 0; */
+  }
+}
+

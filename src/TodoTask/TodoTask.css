@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     box-shadow: none;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
 }
 .newtaskContainer--active {
     background-color: white;
@@ -17,7 +18,7 @@
     justify-content: space-around;
     background-color: white;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 4px;
 }
 .taskInputContainer--active {
@@ -29,7 +30,7 @@
     margin: 8px 0px;
 }
 .todoInput {
-    height: 15px;
+    height: 20px;
     width: 100%;
 }
 .todoInput--active {
@@ -40,6 +41,7 @@
 }
 .writeIcon {
     font-size: 1.4rem;
+    padding-right: 8px;
     color: gray;
 }
 .btnContainer {
@@ -50,4 +52,10 @@
 .addBtn--active,
 .cancelBtn--active {
     visibility: visible;
+}
+
+@media (min-width: 1300px){
+  .taskInputContainer {
+    margin-top: 16px;
+  }
 }
