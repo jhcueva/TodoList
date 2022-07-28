@@ -8,6 +8,7 @@ function TodoItem(props) {
     props.editTask(props.text);
     props.setOpenModal(true);
   };
+  
   return (
     <li className={`todoContainer ${props.completed && "todoContainer--active"}`}>
       <div className={`check ${props.completed && "check--active"}`}>

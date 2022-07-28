@@ -5,9 +5,11 @@ interface TodoSearchProps {
   searchValue: string
   setSearchValue: (value: string) => void
   loading: boolean
+  totalTodos: number
 }
 
-function TodoSearch({ searchValue, setSearchValue, loading }: TodoSearchProps) {
+function TodoSearch({ searchValue, setSearchValue, loading, totalTodos }: TodoSearchProps) {
+
   const onSearchValueChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value)
   }
@@ -20,7 +22,7 @@ function TodoSearch({ searchValue, setSearchValue, loading }: TodoSearchProps) {
           placeholder="Task 1"
           value={searchValue}
           onChange={onSearchValueChanged}
-          disabled={loading}
+          disabled={(!loading && !totalTodos)}
         />
         <i className="searchIcon fa-solid fa-magnifying-glass"></i>
       </div>

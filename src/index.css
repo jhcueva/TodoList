@@ -93,7 +93,6 @@ textarea:focus {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
 }
-.todoTask > h2,
 .todoTask > .searchContainer {
   margin: 12px 0px;
 }

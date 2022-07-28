@@ -1,76 +1,77 @@
 .todoContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 8px 0px;
-    width: 100%;
-    border: 1px solid none;
-    background-color:white;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0px;
+  width: 100%;
+  border: 1px solid none;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .todoContainer--active {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 .taskContainer {
-    display: flex;
-    flex-direction: column;
-    margin: 12px 0px;
-    max-width: 215px;
-    width: 100%;
-    /* overflow-wrap: break-word; */
-
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0px;
+  max-width: 215px;
+  width: 100%;
+  /* overflow-wrap: break-word; */
 }
 .check {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-    margin-left: 16px;
-    border: 2px solid red;
-    border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 16px;
+  border: 2px solid red;
+  border-radius: 50%;
 }
 .check--active {
-    border-color: #55a630;
-    background-color: #55a630;
+  border-color: #55a630;
+  background-color: #55a630;
 }
 .checkIcon {
-    display: none;
-    font-size: 0rem;
-    color: white;
+  display: none;
+  font-size: 0rem;
+  color: white;
 }
 .checkIcon--active {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 .todoItem {
-    padding: 8px;
-    overflow-wrap: break-word;
+  padding: 8px;
+  overflow-wrap: break-word;
+}
+.todoItem--completed {
+  color: #7e7e7ecc;
 }
 .todoItem:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .taskButtons {
-    width: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .edit {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 .delete {
-    margin-right: 16px;
-    font-size: 1.6rem;
-    color: gray;
+  margin-right: 16px;
+  font-size: 1.6rem;
+  color: gray;
 }
 .delete:hover {
-    cursor: pointer;
-    color: red;
+  cursor: pointer;
+  color: red;
 }
 @media (min-width: 650px) {
-    .taskContainer {
-        width: 80%;
-        max-width: none;
-    }
+  .taskContainer {
+    width: 80%;
+    max-width: none;
+  }
 }

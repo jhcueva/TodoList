@@ -60,6 +60,7 @@ function AppUI() {
           <TodoSearch 
             searchValue={searchValue}
             setSearchValue={setSearchValue}
+            totalTodos={totalTodos}
           />
           <TodoList
             error={error}

@@ -11,6 +11,9 @@
     background-color: white;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+.title {
+  margin: 18px 0;
+}
 .taskInputContainer {
     width: 100%;
     display: flex;
@@ -56,6 +59,6 @@
 
 @media (min-width: 1300px){
   .taskInputContainer {
-    margin-top: 16px;
+    margin-top: 8px;
   }
 }
