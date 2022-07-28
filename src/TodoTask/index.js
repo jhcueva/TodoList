@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './TodoTask.css'
 
 function TodoTask({ addTodo }) {
   const [newTodoValue, setNewTodoValue] = React.useState('')
+  const taskInputContainer = useRef()
+  const newTaskContainer = useRef()
+  const btnContainer = useRef()
+  const todoInput = useRef()
+  const writeIcon = useRef()
 
   const onChange = (event) => {
     setNewTodoValue(event.target.value)
   }
 
   const onClickInput = () => {
-    console.log('onclick started')
-    document.getElementsByClassName('todoInput')[0].value = ''
-    document.getElementsByClassName('writeIcon')[0].style.fontSize = 0
-    document.getElementsByClassName('newtaskContainer')[0].classList.add('newtaskContainer--active')
-    document.getElementById('taskInputContainer').classList.add('taskInputContainer--active')
-    document.getElementsByClassName('todoInput')[0].classList.add('todoInput--active')
-    document.getElementsByClassName('btnContainer')[0].style.display = 'flex'
-    console.log('done onclick')
+    writeIcon.current.style.fontSize = 0
+    todoInput.current.value = ''
+    newTaskContainer.current.classList.add('newtaskContainer--active')
+    taskInputContainer.current.classList.add('taskInputContainer--active')
+    todoInput.current.classList.add('todoInput--active')
+    btnContainer.current.style.display = 'flex'
   }
 
   const onSubmit = (event) => {
@@ -26,19 +29,21 @@ function TodoTask({ addTodo }) {
   }
 
   const onCloseTodo = () => {
-    document.getElementsByClassName('writeIcon')[0].style.fontSize = ('1.4rem')
-    document.getElementsByClassName('newtaskContainer')[0].className = ('newtaskContainer')
-    document.getElementsByClassName('taskInputContainer--active')[0].className = ('taskInputContainer')
-    document.getElementsByClassName('todoInput')[0].className = ('todoInput')
-    document.getElementsByClassName('btnContainer')[0].style.display = 'none'
-    document.getElementsByClassName('todoInput')[0].value = ''
+    writeIcon.current.style.fontSize = ('1.4rem')
+    newTaskContainer.current.className = ('newtaskContainer')
+    taskInputContainer.current.className = ('taskInputContainer') 
+    todoInput.current.className = ('todoInput')
+    btnContainer.current.style.display = 'none'
+    todoInput.current.value = ''
   }
   return (
     <>
       <h2>Create a new task</h2>
-      <section className='newtaskContainer'>
+      <section className='newtaskContainer' ref={newTaskContainer}>
         <section className='taskInputContainer'
-          id='taskInputContainer'>
+          id='taskInputContainer'
+          ref={taskInputContainer}
+          >
           <form
             className='formContainer'
             onSubmit={onSubmit}>
@@ -48,8 +53,9 @@ function TodoTask({ addTodo }) {
               onChange={onChange}
               onClick={onClickInput}
               placeholder=" Launch rocket to the moon"
+              ref={todoInput}
             />
-            <section className='btnContainer'>
+            <section className='btnContainer' ref={btnContainer}>
               <button
                 id='cancelBtn'
                 className='cancelBtn'
@@ -65,6 +71,7 @@ function TodoTask({ addTodo }) {
           <i
             className="writeIcon fa-solid fa-pen"
             onClick={onClickInput}
+            ref={writeIcon}
           ></i>
         </section>
       </section>
