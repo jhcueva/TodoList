@@ -70,17 +70,6 @@ function AppUI() {
             onLoading={() => <TodoLoading/>}
             onEmptyTodos={() => <EmptyTodos/>}
             onEmptySearchResults={() => <EmptySearchResults searchValue={searchValue}/>}
-            // render={todo => (
-            //   <TodoItem
-            //   editTask={(text) => editTask(text)}
-            //   setOpenModal={(state) => setOpenModal(state)}
-            //   key={todo.text}
-            //   text={todo.text}
-            //   completed={todo.completed}
-            //   onComplete={() => completeTodo(todo.text)}
-            //   onDelete={() => deleteTodo(todo.text)}
-            //   />)
-            // }
           >
             {todo => (
               <TodoItem

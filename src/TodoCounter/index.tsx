@@ -5,7 +5,7 @@ import confetti from 'canvas-confetti'
 interface TodoCounterProps {
   totalTodos: number
   completedTodos: number
-  loading: boolean
+  loading?: boolean
 }
 
 const TodoCounter: React.FC<TodoCounterProps> = ({ totalTodos, completedTodos, loading }) => {

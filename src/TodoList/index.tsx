@@ -4,9 +4,9 @@ import { Item } from '../TodoContext/useLocalStorage.models'
 
 interface ToDoListProps {
   error: boolean
-  loading: boolean
   searchedTodos: Item[]
   totalTodos: number
+  loading?: boolean
   onError: () => void
   onLoading: () => void
   onEmptyTodos: () => void

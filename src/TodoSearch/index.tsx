@@ -4,8 +4,8 @@ import './TodoSearch.css'
 interface TodoSearchProps {
   searchValue: string
   setSearchValue: (value: string) => void
-  loading: boolean
   totalTodos: number
+  loading?: boolean
 }
 
 function TodoSearch({ searchValue, setSearchValue, loading, totalTodos }: TodoSearchProps) {
