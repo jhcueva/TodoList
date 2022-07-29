@@ -12,6 +12,7 @@ import { TodoLoading } from "../TodoLoading";
 import { TodoError } from "../TodoError";
 import { EmptyTodos } from "../EmptyTodos";
 import { EmptySearchResults } from "../EmptySearchResults";
+import { TodoProgress } from "../TodoProgress";
 
 import { TodoContextProps } from "../TodoContext/index.models";
 import { TodoTaskContainer } from "../TodoTaskContainer";
@@ -48,6 +49,10 @@ function AppUI() {
       <section className="globalContainer">
         <NewTask>
           <TodoTask addTodo={addTodo}/>
+          <TodoProgress
+            totalTodos={totalTodos}
+            completedTodos={completedTodos}
+          />
         </NewTask>
         <TodoTaskContainer loading={loading}>
           <ChangeAlertWithStorageListener

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './TodoTask.css'
 
+
 function TodoTask({ addTodo }) {
   const [newTodoValue, setNewTodoValue] = React.useState('')
 
@@ -37,10 +38,11 @@ function TodoTask({ addTodo }) {
     btnContainer.current.style.display = 'none'
     todoInput.current.value = ''
   }
+  
 
   return (
     <>
-      <h2 className='title'>Create a new task</h2>
+      <h2 className='todoTask__title'>Create a new task</h2>
       <section className='newtaskContainer' ref={newTaskContainer}>
         <section className='taskInputContainer'
           id='taskInputContainer'
