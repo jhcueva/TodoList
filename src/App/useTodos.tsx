@@ -74,7 +74,6 @@ const useTodos = () => {
     openModal,
     notFound,
     task,
-    synchronizeTodos,
   }
   
   const stateUpdaters = {
@@ -85,6 +84,7 @@ const useTodos = () => {
     deleteTodo,
     setOpenModal,
     editTask,
+    synchronizeTodos,
   }
 
   return { state, stateUpdaters}

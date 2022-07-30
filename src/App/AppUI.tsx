@@ -13,8 +13,8 @@ import { TodoError } from "../TodoError";
 import { EmptyTodos } from "../EmptyTodos";
 import { EmptySearchResults } from "../EmptySearchResults";
 import { TodoProgress } from "../TodoProgress";
+import { TodoLoadingContainer } from "../TodoLoadingContainer";
 
-import { TodoContextProps } from "../TodoContext/index.models";
 import { TodoTaskContainer } from "../TodoTaskContainer";
 import { ChangeAlertWithStorageListener } from "../ChangeAlert";
 
@@ -31,9 +31,8 @@ function AppUI() {
     openModal,
     notFound,
     task,
-    synchronizeTodos,
   } = state
-
+  
   const {
     setSearchValue,
     addTodo,
@@ -42,6 +41,7 @@ function AppUI() {
     deleteTodo,
     setOpenModal,
     editTask,
+    synchronizeTodos,
   } = stateUpdaters
 
   return (
@@ -72,7 +72,7 @@ function AppUI() {
             searchedTodos={searchedTodos}
             totalTodos={totalTodos}
             onError={() => <TodoError/>}
-            onLoading={() => <TodoLoading/>}
+            onLoading={() => <TodoLoadingContainer/>}
             onEmptyTodos={() => <EmptyTodos/>}
             onEmptySearchResults={() => <EmptySearchResults searchValue={searchValue}/>}
           >

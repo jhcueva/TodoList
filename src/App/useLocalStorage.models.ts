@@ -8,4 +8,5 @@ export interface Return {
   saveItem: (newItem: Item[]) => void
   loading: boolean
   error: boolean | unknown
+  synchronizeItem: () => void
 }

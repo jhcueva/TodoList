@@ -24,8 +24,8 @@ function TodoItem(props) {
         </p>
       </section>
       <section className="taskButtons">
-        <i class="edit fa-solid fa-ellipsis" onClick={onClickEdit}></i>
-        <i class="delete fa-solid fa-trash" onClick={props.onDelete}></i>
+        <i className="edit fa-solid fa-ellipsis" onClick={onClickEdit}></i>
+        <i className="delete fa-solid fa-trash" onClick={props.onDelete}></i>
       </section>
     </li>
   );
