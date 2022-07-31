@@ -19,7 +19,7 @@ function TodoSearch({ searchValue, setSearchValue, loading, totalTodos }: TodoSe
       <div className="searchContainer">
         <input
           className="search"
-          placeholder="Task 1"
+          placeholder="Search"
           value={searchValue}
           onChange={onSearchValueChanged}
           disabled={(!loading && !totalTodos)}

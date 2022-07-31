@@ -63,7 +63,7 @@ const useLocalStorage = (itemName: string, initialValue: Item[]): Return => {
       } catch (error) {
         onError(error)
       }
-    }, 6000)
+    }, 1000)
   }, [synchronizedItem])
 
   const saveItem = (newItem: Item[]) => {
