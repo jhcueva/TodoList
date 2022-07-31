@@ -38,6 +38,14 @@ function TodoTask({ addTodo }) {
     btnContainer.current.style.display = 'none'
     todoInput.current.value = ''
   }
+
+  const handleKey = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      addTodo(newTodoValue)
+      onCloseTodo()
+    }
+  }
   
 
   return (
@@ -58,6 +66,7 @@ function TodoTask({ addTodo }) {
               onClick={onClickInput}
               placeholder=" Launch rocket to the moon"
               ref={todoInput}
+              onKeyDown={handleKey}
             />
             <section className='btnContainer' ref={btnContainer}>
               <button

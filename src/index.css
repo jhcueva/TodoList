@@ -65,7 +65,7 @@ textarea:focus {
   width: 95%;
   max-width: 650px;
   min-height: 250px;
-  height: 40vh;
+  height: 60vh;
   flex: 0 1 650px;
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@ textarea:focus {
 .todoTask{
   background-color: #F9FAFF;
   flex: 0 1 650px;
-  min-height: 61vh;
+  min-height: 63vh;
   max-width: 650px;
   width: 98%;
   display: flex;
@@ -89,7 +89,7 @@ textarea:focus {
   border-radius: 14px 14px 0px 0px;
   z-index: 1;
   position: absolute;
-  margin-top: max(240px, 39vh);
+  margin-top: max(240px, 53vh);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
 }

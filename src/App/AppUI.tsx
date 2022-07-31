@@ -54,7 +54,10 @@ function AppUI() {
             completedTodos={completedTodos}
           />
         </NewTask>
-        <TodoTaskContainer loading={loading}>
+        <TodoTaskContainer 
+          loading={loading}
+          totalTodos={totalTodos}
+          >
           <ChangeAlertWithStorageListener
             synchronize={synchronizeTodos}
           />
