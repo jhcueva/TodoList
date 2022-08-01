@@ -22,7 +22,7 @@ const useTodos = () => {
 
   let notFound = "";
 
-  if (searchValue.length >= 1) {
+  if (!(searchValue.length >= 1)) {
     searchedTodos = todos;
   } else {
     searchedTodos = todos.filter((todo) => {
