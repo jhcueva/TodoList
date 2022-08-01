@@ -11,7 +11,7 @@ const useTodos = () => {
     synchronizeItem: synchronizeTodos,
   } = useLocalStorage("TODOS_V1", []);
 
-  const [searchValue, setSearchValue] = React.useState("");
+  const [searchValue, setSearchValue] = React.useState<string>("");
   const [openModal, setOpenModal] = React.useState(false)
   const [task, editTask] = React.useState("")
 
@@ -22,7 +22,7 @@ const useTodos = () => {
 
   let notFound = "";
 
-  if (!searchValue.length >= 1) {
+  if (searchValue.length >= 1) {
     searchedTodos = todos;
   } else {
     searchedTodos = todos.filter((todo) => {

@@ -1,17 +1,18 @@
-import React, { useEffect, useRef } from 'react'
+import React, { ReactElement, ReactNode, useEffect, useRef } from 'react'
 
 interface Props {
   totalTodos: number
   loading: boolean
   children?: React.ReactNode
 }
+interface ChildrenProps {
+  loading: boolean
+}
 
 const TodoTaskContainer = ({ children, loading, totalTodos }: Props) => {
   const todotaskContainer = useRef()
 
   // todotaskContainer.current.style.marginTop = "max(240px, 70vh)"
-
-  
 
   // useEffect(() => {
   //   if ((totalTodos > 0)) {
@@ -26,7 +27,7 @@ const TodoTaskContainer = ({ children, loading, totalTodos }: Props) => {
       {
         React.Children
           .toArray(children)
-          .map(child => React.cloneElement( child, { loading}))
+          .map(child => React.cloneElement(child as ReactElement<ChildrenProps>, { loading }))
       }
     </section>
   )
