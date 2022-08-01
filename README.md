@@ -1,10 +1,8 @@
 <img src="./public/favicon.ico" align="right" width=92px/>
 
-
-
 **To do list** 
 ------------
-**To do list** an app where you can create to do lists for any purpose. Keep organized and manage your day to day tasks.
+[**To do list**](https://todo-list-iota-two.vercel.app "**To do list**") is an app where you can create to do lists for any purpose. Keep organized and manage your day to day tasks.
 
 <img src="./public/images/example.png"/>
 
