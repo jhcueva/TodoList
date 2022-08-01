@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/jhcueva/TodoList/main/public/favicon.ico?token=GHSAT0AAAAAABWXLP326RTC63TB4HJH5AIGYXHGVHA" align="right" width=82px/>
+<img src="./public/favicon.ico" align="right" width=82px/>
 # To Do List
 **To do list** an app where you can create to do lists for any purpose. Keep organized and manage your day to day tasks.
 
