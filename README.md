@@ -1,5 +1,6 @@
 <img src="./public/favicon.ico" align="right" width=82px/>
 # To Do List
+
 **To do list** an app where you can create to do lists for any purpose. Keep organized and manage your day to day tasks.
 
 
