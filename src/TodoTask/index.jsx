@@ -41,12 +41,12 @@ function TodoTask({ addTodo }) {
 
   const handleKey = (event) => {
     if (event.key === 'Enter') {
-      event.preventDefault()
-      addTodo(newTodoValue)
-      onCloseTodo()
+      // event.preventDefault()
+      // addTodo(newTodoValue)
+      // onCloseTodo()
+      onSubmit(event)
     }
   }
-  
 
   return (
     <>
