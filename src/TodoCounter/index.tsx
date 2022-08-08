@@ -23,9 +23,9 @@ const TodoCounter: React.FC<TodoCounterProps> = ({ totalTodos, completedTodos, l
 
   React.useEffect(() => {
     totalTodos - completedTodos > 0
-      ? (document.title = `${totalTodos - completedTodos} ${totalTodos - completedTodos === 1 ? "pending task" : "pending tasks"
+      ? (document.title = `${totalTodos - completedTodos} ${totalTodos - completedTodos === 1 ? "pending task | To do List" : "pending tasks | To do List"
         }`)
-      : (document.title = `No pending tasks`);
+      : (document.title = `To do List`);
 
     if ((totalTodos === completedTodos) && totalTodos !== 0) {
       fire(0.25, {
